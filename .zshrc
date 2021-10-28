@@ -6,7 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export PATH="/usr/local/sbin:$PATH"
-source /Users/chrisjarvis/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+
+# get current user
+currentuser=$(stat -f "%Su" /dev/console)
+source "/Users/$currentuser/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -16,7 +19,7 @@ source /Users/chrisjarvis/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.z
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/chrisjarvis/.oh-my-zsh"
+export ZSH="/Users/$currentuser/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
