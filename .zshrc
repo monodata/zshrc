@@ -6,10 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export PATH="/usr/local/sbin:$PATH"
-
-# get current user
-currentuser=$(stat -f "%Su" /dev/console)
-source "/Users/$currentuser/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
+source /Users/chrisjarvis/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -19,7 +16,7 @@ source "/Users/$currentuser/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/$currentuser/.oh-my-zsh"
+export ZSH="/Users/chrisjarvis/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -154,34 +151,35 @@ clone() {
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
-alias reload='source ~/.zshrc'              # Reloads zshrc config
-alias pcp="rsync -r --progress"             # CP with progress bar
-alias cp='cp -iv'                           # Preferred 'cp' implementation
-alias mv='mv -iv'                           # Preferred 'mv' implementation
-alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
-alias less='less -FSRXc'                    # Preferred 'less' implementation
-#cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
-#alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-#alias ..='cd ../'                           # Go back 1 directory level
-#alias ...='cd ../../'                       # Go back 2 directory levels
-#alias .3='cd ../../../'                     # Go back 3 directory levels
-#alias .4='cd ../../../../'                  # Go back 4 directory levels
-#alias .5='cd ../../../../../'               # Go back 5 directory levels
-#alias .6='cd ../../../../../../'            # Go back 6 directory levels
-alias edit='subl'                           # edit:         Opens any file in sublime editor
-alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
-alias ~="cd ~"                              # ~:            Go Home
-alias c='clear'                             # c:            Clear terminal display
-alias which='type -a'                     # which:        Find executables
-alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
-alias show_options='shopt'                  # Show_options: display bash options settings
-alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
-alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
-mcd() { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
-trash() { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
-ql() { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
-alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+alias reload='source ~/.zshrc'                # Reloads zshrc config
+alias omzup='~/.oh-my-zsh/tools/upgrade.sh'    # updates oh-my-zsh
+alias pcp="rsync -r --progress"               # CP with progress bar
+alias cp='cp -iv'                             # Preferred 'cp' implementation
+alias mv='mv -iv'                             # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                       # Preferred 'mkdir' implementation
+alias ll='ls -FGlAhp'                         # Preferred 'ls' implementation
+alias less='less -FSRXc'                      # Preferred 'less' implementation
+#cd() { builtin cd "$@"; ll; }                # Always list directory contents upon 'cd'
+#alias cd..='cd ../'                          # Go back 1 directory level (for fast typers)
+#alias ..='cd ../'                            # Go back 1 directory level
+#alias ...='cd ../../'                        # Go back 2 directory levels
+#alias .3='cd ../../../'                      # Go back 3 directory levels
+#alias .4='cd ../../../../'                   # Go back 4 directory levels
+#alias .5='cd ../../../../../'                # Go back 5 directory levels
+#alias .6='cd ../../../../../../'             # Go back 6 directory levels
+alias edit='subl'                             # edit:         Opens any file in sublime editor
+alias f='open -a Finder ./'                   # f:            Opens current directory in MacOS Finder
+alias ~="cd ~"                                # ~:            Go Home
+alias c='clear'                               # c:            Clear terminal display
+alias which='type -a'                         # which:        Find executables
+alias path='echo -e ${PATH//:/\\n}'           # path:         Echo all executable Paths
+alias show_options='shopt'                    # Show_options: display bash options settings
+alias fix_stty='stty sane'                    # fix_stty:     Restore terminal settings when screwed up
+alias cic='set completion-ignore-case On'     # cic:          Make tab-completion case-insensitive
+mcd() { mkdir -p "$1" && cd "$1"; }           # mcd:          Makes new Dir and jumps inside
+trash() { command mv "$@" ~/.Trash ; }        # trash:        Moves a file to the MacOS trash
+ql() { qlmanage -p "$*" >& /dev/null; }       # ql:           Opens any file in MacOS Quicklook Preview
+alias DT='tee ~/Desktop/terminalOut.txt'      # DT:           Pipe content to file on MacOS Desktop
 alias cleanRCM='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
 #   Sort manpages for coreutils
